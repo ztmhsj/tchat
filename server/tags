@@ -1,0 +1,66 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BLACK	rb_tree.h	4;"	d
+HEADBYTES	server.h	11;"	d
+LISTEN	net.h	10;"	d
+MAXLENGHT	server.h	10;"	d
+NET	net.h	2;"	d
+PORT	net.h	9;"	d
+RBTREE	rb_tree.h	2;"	d
+RED	rb_tree.h	3;"	d
+SER	server.h	2;"	d
+SOCKCNFDBUF	main.c	8;"	d	file:
+_rb_node	rb_tree.h	/^typedef struct _rb_node{$/;"	s
+child	rb_tree.c	/^	rb_node *child;$/;"	m	struct:__anon4	file:
+client_soaddr	server.h	/^	struct sockaddr client_soaddr;$/;"	m	struct:__anon3	typeref:struct:__anon3::sockaddr
+cnfd_addr	server.h	/^}cnfd_addr;$/;"	t	typeref:struct:__anon3
+color	rb_tree.h	/^	int color;$/;"	m	struct:_rb_node
+content	rb_tree.h	/^	void *content;$/;"	m	struct:__anon1
+data	rb_tree.h	/^}data;$/;"	t	typeref:struct:__anon1
+error	server.c	/^void error(char *y,int x)$/;"	f
+getcontent	server.c	/^inline char *getcontent(char *buf)$/;"	f
+getlength	server.c	/^inline int getlength(char *buf)$/;"	f
+getuserid	server.c	/^inline int getuserid(char *buf)$/;"	f
+getype	server.c	/^inline int getype(char *buf)$/;"	f
+initializetree	rb_tree.h	25;"	d
+insertpt	rb_tree.c	/^	rb_node **insertpt;$/;"	m	struct:__anon4	file:
+insertree	rb_tree.c	/^int insertree(rb_tree *ptree,data *datapt)$/;"	f
+key	rb_tree.h	/^	int key;$/;"	m	struct:__anon1
+left	rb_tree.h	/^	struct _rb_node *left;$/;"	m	struct:_rb_node	typeref:struct:_rb_node::_rb_node
+main	main.c	/^int main(void)$/;"	f
+main	tree.c	/^int main(void)$/;"	f
+make_server_socket	net.c	/^int make_server_socket(int port,int listen_num)$/;"	f
+makedata	rb_tree.c	/^data *makedata(int key,void *content,size_t size)$/;"	f
+makenode	rb_tree.c	/^static rb_node *makenode(data *datapt)$/;"	f	file:
+ndata	rb_tree.h	/^	data *ndata;$/;"	m	struct:_rb_node
+parent	rb_tree.c	/^	rb_node *parent;$/;"	m	struct:__anon4	file:
+parent	rb_tree.h	/^	struct _rb_node *parent;$/;"	m	struct:_rb_node	typeref:struct:_rb_node::_rb_node
+process_client	server.c	/^void *process_client(void *arg)$/;"	f
+rb_insert_fixup	rb_tree.c	/^static void rb_insert_fixup(rb_node *target,rb_tree *ptree)$/;"	f	file:
+rb_node	rb_tree.h	/^}rb_node;$/;"	t	typeref:struct:_rb_node
+rb_root	rb_tree.h	/^	rb_node *rb_root;$/;"	m	struct:__anon2
+rb_rotate_left	rb_tree.c	/^static void rb_rotate_left(rb_node *target,rb_tree *ptree)$/;"	f	file:
+rb_rotate_right	rb_tree.c	/^static void rb_rotate_right(rb_node *target,rb_tree *ptree)$/;"	f	file:
+rb_tree	rb_tree.h	/^}rb_tree;$/;"	t	typeref:struct:__anon2
+rb_tree_initializer	rb_tree.c	/^void rb_tree_initializer(rb_tree *ptree)$/;"	f
+readn	server.c	/^int readn(int sockcnfd,char *buf)$/;"	f
+right	rb_tree.h	/^	struct _rb_node *right;$/;"	m	struct:_rb_node	typeref:struct:_rb_node::_rb_node
+search_data	rb_tree.c	/^data *search_data(rb_tree *ptree,int key)$/;"	f
+search_node	rb_tree.c	/^static search_result search_node(rb_tree *ptree,int key)$/;"	f	file:
+search_result	rb_tree.c	/^}search_result;$/;"	t	typeref:struct:__anon4	file:
+searchdata	rb_tree.c	/^data *searchdata(rb_tree *ptree,int key)$/;"	f
+setup_detache	main.c	/^void setup_detache(pthread_attr_t *attr)$/;"	f
+size	rb_tree.h	/^	size_t size;$/;"	m	struct:__anon2
+sockcnfd	server.h	/^	int sockcnfd;$/;"	m	struct:__anon3
+toleft	rb_tree.c	/^static int toleft(rb_node *temp_nodept,int key)$/;"	f	file:
+toright	rb_tree.c	/^static int toright(rb_node *temp_nodept,int key)$/;"	f	file:
+tra_fun	rb_tree.h	/^typedef void (*tra_fun)(rb_node *nodept);$/;"	t
+traversal_fun	rb_tree.c	/^void traversal_fun(rb_node *nodept)$/;"	f
+traversaltree	rb_tree.c	/^void traversaltree(rb_tree *ptree,tra_fun fun)$/;"	f
+tree_is_empty	rb_tree.h	26;"	d
+treecount	rb_tree.h	27;"	d
+user_sock	server.h	/^rb_tree user_sock;$/;"	v

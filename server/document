@@ -1,0 +1,73 @@
+map结构server_user_map key是user_id;
+struct server_user_message
+{
+	unsigned user_id;
+	char user_name;
+	bool online;
+	addr_t client_address;
+	int clinent_port;
+}
+struct user_socket_map
+{
+	unsigned user_id;
+	char user_name;
+}
+client_sock_list结构 关联socket和user_id;
+int main(void)
+{
+	make_server();
+	while{
+		accept();//客户端发送
+		pthread_create(){
+		get_client_message();
+		取出好友列表 放入server_user_list;
+		client发送上线请求;
+		while{
+			while
+				result=read untile get \r\n;
+			result=-1:-1,under line,flush online;
+			check_result{
+					包长\r\n,o,client_online;
+					c,chat
+			//		g,group;
+			//		3,transfer file,开启进程;
+					f,flush
+			}
+		}
+		}
+	}
+}
+client_online
+{
+数据包 包长\r\n,0,user_message(user_id,address,user_port_num);
+回复包 包长0,时间戳;
+检测user_id是否已经上线;
+互斥锁:接受数据包后添加进client_socket_map;
+transfer_user_list(),发送给客户端server_user_message列表;
+服务端在发送给每个好友上线通知 0,user_name;
+客户端回传刷新通知(4,user_id),上线正式完成;
+}
+chat
+{
+数据包 包长\r\n,2,user_id,content;
+接受数据包后根据user_id查找出相应socket;
+替换user_id;
+发送;
+}
+client_unline
+{
+//cline关闭socket 返回read返回-1;
+发送数据包 -1,user_id给每个server_map列表中的在线客户端下线通知,服务端修改数据库
+状态
+//服务端此时的server_user_message还是在线状态,当wirte失败时更改为下线状态;
+从user_sock_map移除;
+客户端发送下线通知4,flush,或者write失败,下线完成;
+}
+
+
+
+数据库
+user表存储用户全部信息
+每个用户的好友信息一张表
+
+

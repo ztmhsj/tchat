@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>注册帐号</title>
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<style>
+	body{
+		background-image:url("./img/03.jpg");
+		color:#60A00B;
+	}
+	#head{
+		height:90px;
+		text-align:center;
+	}
+	#main{
+		height:300px;
+		width:500px;
+		margin-left:150px;
+	}
+	.register{
+		height:40px;
+	}
+	#check{
+		size:99;
+	}
+	.in{
+		width:500px;
+		height:60px;
+	}
+	 span{
+		font-size:20px;
+		font-weight:bold;
+	}
+	p{
+		font-size:30px;
+		font-weight:bold;
+	}
+	a:link{
+		text-decoration:none;
+	}
+	a:hover{
+	  text-decoration:underline;
+	  color:red;
+    }
+	.in #s1{
+		margin-right:1em;
+	}
+</style>
+</head>
+<body>
+	<div id="container" >
+		<div id="head">
+			<p>注册帐号</p>
+		</div>
+		<div id="main" >
+			<form action="./register.php" method="post">
+				<div class="in">
+					<span>用户名</span>
+					<input class="register" type="text" name="register-name"/>
+				</div>
+				<div class="in">
+					<span id="s1">密码</span>
+					<input class="register" type="password" name="register-passwd"/>
+				</div>
+				<div class="in">
+					<span>验证码</span>
+					<input size="2" class="register" id="check" type="text" name="register-check"/>
+				</div>
+				<div class="in" style="height:50px">
+					<input id="sub" type="submit" value="注册" width="9"/>
+				</div>
+				<div class="pro">
+					<input type="checkbox" name="protocol"/>我已阅读并接受
+					<a href="./pro.html" target="_blank">&lsaquo;&lsaquo;用户协议&rsaquo;&rsaquo;<a>
+				</div>
+		</div>
+	</div>
+	</body>
+	</html>

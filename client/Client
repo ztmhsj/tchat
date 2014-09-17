@@ -1,0 +1,112 @@
+#ifndef CLIENT
+#define CLIENT
+#include<iostream>
+#include<sstream>
+#include<string>
+#include<vector>
+#include<stdlib.h>
+#include<sys/socket.h>
+#include<arpa/inet.h>
+#include<unistd.h>
+#include<string.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<memory>
+#include<map>
+#include<pthread.h>
+#include<ncurses.h>
+#define GRM_ONLINE ((char)0)
+#define GRM_ONLINE_LENGTH 26
+#define GRM_REFRESH 4
+#define GRM_REFRESH_LENGTH (sizeof(int)+sizeof(sockaddr))
+#define GRM_REFRESH_SERVER_LENGTH (sizeof(int))
+#define GRM_MESSAGE 1
+#define USER_NAME 10
+#define PASSWD 16
+#define HEADBYTES (sizeof(int)+1)
+#define MAXLENGHT 5000
+using std::string;using std::cout;using std::cin;using std::endl;using std::cerr;
+using std::map;using std::unique_ptr;using std::pair;using std::vector;
+using std::istringstream;
+
+class Client;
+struct client_friend{
+	int user_id;
+	char user_name[USER_NAME];
+	int face;
+	int online;
+	struct sockaddr address;
+};
+class Appearance;
+
+class Me{
+	private:
+		string user_name;
+		string passwd;
+		int face=0;
+		struct sockaddr address;
+		Me(const string &name,const string &passwd):
+			user_name(name),passwd(passwd){}
+
+	friend Client;
+};
+class Client;
+class Friend{
+		string user_name;
+		int face;
+		bool online;
+		struct sockaddr address;
+
+		friend Client;
+};
+class Appearance{
+	private:
+		WINDOW *fwin;
+		WINDOW *mwin;
+		WINDOW *iwin;
+		int fy,fx,my,mx,iy,ix;
+
+	public:
+		Appearance();
+	friend Client;
+};
+	
+class Client{
+	public:
+		Client(const string &name,const string &passwd); 
+		void online_client();
+		void print_me();
+		void print_friendlist();
+		void working();
+		int transfer_message(const int &destid,const int &online);
+
+	private:
+	int user_id;
+	int sockcnfd;
+	Me me;
+	map<int,Friend> ff;
+	Appearance cc;
+	vector<string> mymess;
+
+	int gethead(char *buf,unsigned int &content_length);
+	int setfriend(const int &content_length);
+	int readn(char *buf,int size);
+	int writen(char *message,int size);
+	void sendonline(char *buf,const int &buflength);
+	int get_client_operate(int &uid,int &online);
+	void add_history(const char *content,string rece_name);
+
+	void deamon();  
+	int get_friend();
+	void refresh_friend();
+	void receive_message(const int unsigned &content_length);
+	void print_message(const char *content,const string rece_name);
+	void add_message(const char *content);
+
+	int add_friend();
+
+	static void *operate(void *);
+	static char *sethead(char *buf,const int length,const int type);
+	static void error(const string &ss,const int &i);
+};
+#endif

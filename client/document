@@ -1,0 +1,19 @@
+class client{
+	my
+	map:friend;
+	menber_fuction
+		cout<<friend;
+		cout<<my;
+		online;
+		add_friend;
+		talk;
+		
+}
+class firend{
+	string name;
+	int uid;
+	face;
+	address;
+}
+	
+	
